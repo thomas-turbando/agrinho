@@ -19,6 +19,22 @@
       text-align: center;
     }
 
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .header-container img {
+      width: 120px;
+      height: auto;
+    }
+
+    .header-text h1, .header-text p {
+      margin: 0;
+    }
+
     .container {
       width: 80%;
       margin: 20px auto;
@@ -30,11 +46,40 @@
       margin-bottom: 20px;
       border-radius: 5px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);        
-      color: #000000;
+      color: #000;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
 
-    .post h2 {
-      margin-top: 0;
+    .post:hover {
+      transform: scale(1.01);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .post-content {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .post img {
+      width: 200px;
+      height: auto;
+      border-radius: 5px;
+      transition: transform 0.3s;
+    }
+
+    .post:hover img {
+      transform: scale(1.05);
+    }
+
+    .full-text {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .post.expanded .full-text {
+      display: block;
     }
 
     footer {
@@ -46,66 +91,68 @@
       bottom: 0;
       width: 100%;
     }
-
-    .header-container {
-  display: flex;
-  align-items: center; /* Alinha verticalmente */
-  gap: 10px; /* Espaçamento entre a imagem e o texto */
-}
-
-.header-container img {
-  width: 120px; /* Ajuste o tamanho conforme necessário */
-  height: auto;
-}
-
-.header-text h1, .header-text p {
-  margin: 0;
-}
-
   </style>
 </head>
 <body>
 
- <header>
+<header>
   <div class="header-container">
     <img src="logo.png" alt="Logo">
     <div class="header-text">
       <h1>milho e soja</h1>
-      <p>transgênicos</p>
+      <p>transgenia</p>
     </div>
   </div>
 </header>
 
-  <div class="container">
+<div class="container">
 
-    <div class="post">
-      <h2>Soja Transgênica: Vantagens e Controvérsias</h2>
-      <p><strong>Data:</strong> 16 de maio de 2025</p>
-      <p>
-        A soja transgênica foi desenvolvida para resistir a herbicidas, como o glifosato, facilitando o controle de ervas daninhas nas plantações. Essa biotecnologia aumentou a produtividade agrícola e reduziu os custos de produção em muitos países.
-      </p>
-      <p>
-        Por outro lado, existem preocupações quanto aos impactos ambientais, como a resistência de plantas daninhas e a possível contaminação genética. Além disso, há debates sobre os efeitos a longo prazo no consumo humano, apesar da maioria dos estudos científicos indicar que os transgênicos atualmente aprovados são seguros.
-      </p>
+  <!-- Postagem 1 -->
+  <div class="post" onclick="togglePost(this)">
+    <div class="post-content">
+      <img src="soja.jpg" alt="Soja Transgênica">
+      <div>
+        <h2>Soja Transgênica: Vantagens e Controvérsias</h2>
+        <p><strong>Data:</strong> 16 de maio de 2025</p>
+        <p>Resumo: Resistente a herbicidas, melhora a produtividade, mas levanta questões ambientais.</p>
+        <div class="full-text">
+          <p>A soja transgênica foi desenvolvida para resistir a herbicidas como o glifosato, o que facilita o controle de ervas daninhas.</p>
+          <p>Essa tecnologia aumentou a produtividade agrícola e reduziu custos de produção. Entretanto, há preocupações sobre impactos ambientais, como o surgimento de plantas daninhas resistentes, além de dúvidas sobre efeitos na saúde a longo prazo.</p>
+          <p>Estudos científicos indicam que os transgênicos aprovados são seguros para consumo, mas o debate público persiste, envolvendo também questões de monopólio de sementes.</p>
+        </div>
+      </div>
     </div>
-
-    <div class="post">
-      <h2>Milho Transgênico: Tecnologia no Campo</h2>
-      <p><strong>Data:</strong> 15 de maio de 2025</p>
-      <p>
-        O milho transgênico é amplamente utilizado no Brasil e em outros países. Ele pode ser modificado para resistir a pragas, como a lagarta-do-cartucho, o que diminui a necessidade de inseticidas e reduz os danos às lavouras.
-      </p>
-      <p>
-        Essa tecnologia trouxe ganhos importantes para os produtores, mas também levanta questões semelhantes às da soja transgênica: efeitos sobre o meio ambiente, biodiversidade e o papel das grandes empresas no controle das sementes.
-      </p>
-      <p>
-        O debate sobre os transgênicos continua, mas o milho geneticamente modificado é uma realidade consolidada na agricultura moderna.
-      </p>
-    </div>
-
   </div>
 
-  
+  <!-- Postagem 2 -->
+  <div class="post" onclick="togglePost(this)">
+    <div class="post-content">
+      <img src="milho.png" alt="Milho Transgênico">
+      <div>
+        <h2>Milho Transgênico: Tecnologia no Campo</h2>
+        <p><strong>Data:</strong> 15 de maio de 2025</p>
+        <p>Resumo: Modificado para resistir a pragas, reduz uso de pesticidas e eleva a produção.</p>
+        <div class="full-text">
+          <p>O milho transgênico é amplamente utilizado no Brasil. Sua modificação genética permite resistir a pragas como a lagarta-do-cartucho.</p>
+          <p>Isso reduz a necessidade de pesticidas e traz ganhos econômicos para o produtor. Porém, há críticas sobre o impacto na biodiversidade e a dependência de sementes de grandes corporações.</p>
+          <p>O milho geneticamente modificado é parte integrante da agricultura moderna, mas também exige políticas de regulação e acompanhamento científico contínuo.</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 plantae. Todos os direitos reservados.
+</footer>
+
+<script>
+  function togglePost(postElement) {
+    postElement.classList.toggle("expanded");
+  }
+</script>
 
 </body>
 </html>
